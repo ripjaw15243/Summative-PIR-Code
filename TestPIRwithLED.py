@@ -16,11 +16,11 @@ while True:
     if (i == 0):
         print ("No intruders", i)
         GPIO.output(3,0)
-        time.sleep(2)
+        time.sleep(1.5)
     elif (i == 1):
         print ("Intruder detected", i)
         GPIO.output(3,1)
-        time.sleep(2)
+        time.sleep(1.5)
     
 
 
