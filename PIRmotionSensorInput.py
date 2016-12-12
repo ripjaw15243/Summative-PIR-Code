@@ -1,3 +1,4 @@
+# Prototype
 # Raspberry Pi GPIO input from PIR motion sensor
 # This program will receive an input if the PIR motion sensor senses motion
 # or movement and then sends the input to the raspberry pi connected with
