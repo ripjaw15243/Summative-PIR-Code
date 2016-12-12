@@ -1,17 +1,17 @@
-# Prototype
 # Raspberry Pi GPIO input from PIR motion sensor
 # This program will receive an input if the PIR motion sensor senses motion
 # or movement and then sends the input to the raspberry pi connected with
 # the camera module.
 
-i = 0
-word = ""
 import RPi.GPIO as GPIO
+import time
 import network
 import sys
-from gpiozero import MotionSensor
 
-pir = MotionSensor(4)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.IN)
+GPIO.setup(3, GPIO.OUT)
 
 def heard(phrase):
     print("Donggi: " + phrase)
@@ -22,19 +22,23 @@ else:
     network.wait(whenHearCall=heard)
     
 while network.isConnected():
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(7, GPIO.IN)
-
-    i = GPIO.input(7)
+    
+    i = GPIO.input(11)
 
     if (i == 0):
-        print ("No motion detected.")
+        print ("No intruders")
+
+        GPIO.output(3,0)
+        time.sleep(1.5)
 
         word = "off"
 
         network.say(word)
     elif (i == 1):
-        print ("Motion detected!")
+        print ("Intruder detected")
+
+        GPIO.output(3,1)
+        time.sleep(1.5)
 
         word = "on"
 
