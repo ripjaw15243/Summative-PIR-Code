@@ -1,0 +1,6 @@
+# http://stackoverflow.com/questions/6188970/how-to-make-a-ssh-connection-with-python
+
+# Sending data from the Camera RPi
+# This program will enable the raspberry pi connected to the motion sensor and camera module to send data collected from the camera
+# to another raspberry pi; allowing it to display it. The RPi connected to the motion sensor will then send a signal to the other RPi if 
+# the motion sensor detects something.
