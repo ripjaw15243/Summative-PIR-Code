@@ -4,5 +4,15 @@
 # This program will allow the raspberry pi connected to the motion sensor and camera module to send the data from the camera to
 # a website server; therefore allowing another raspberry pi to stream it.
 
-
+with picamera.PiCamera() as camera:
+                info("Set up camera")
+                camera.resolution = eval(config.get('stream_video', 'picam_resolution'))
+                camera.framerate = int(config.get('stream_video', 'picam_framerate'))
+                camera.capture_sequence(
+                    infinite_seq_of(udp_writer, sleep_time, rfd),
+                    'jpeg',
+                    use_video_port=True,
+                    resize=eval(config.get('stream_video', 'jpeg_resolution')),
+                    thumbnail=None,
+                    quality=int(config.get('stream_video', 'jpeg_quality')))
 
