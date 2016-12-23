@@ -1,6 +1,6 @@
 # http://raspberrypi.stackexchange.com/questions/24158/best-way-to-stream-video-over-internet-with-rpi
 
-# Streaming Camera RPi through the use of the wifi
+# RPi Stream
 # This program will allow the raspberry pi connected to the motion sensor and camera module to send the data from the camera to
 # a website server; therefore allowing another raspberry pi to stream it.
 
